@@ -1,0 +1,8 @@
+version: "3"
+services:
+  test:
+    image: ruby:2.3
+    network_mode: bridge
+    working_dir: /app
+    volumes:
+      - .:/app
