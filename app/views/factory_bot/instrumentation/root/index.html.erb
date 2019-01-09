@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xl-4 col-lg-12">
+    <form id="generate" class="jumbotron">
+      <div class="form-group">
+        <select class="form-control scenario">
+          <% @scenarios.each do |group, scenarios| %>
+            <optgroup label="<%= group %>">
+              <% scenarios.each_with_index do |scenario, idx| %>
+                <option value="<%= group %>/<%= idx %>">
+                  <%= scenario['name'] %>
+                </option>
+              <% end %>
+            </optgroup>
+          <% end %>
+        </select>
+        <small class="form-text text-muted description"></small>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Generate</button>
+    </form>
+    <%= render partial: 'factory_bot_instrumentation/blocks' %>
+  </div>
+  <div class="col-xl-8 col-lg-12">
+    <%= render partial: 'spinner' %>
+    <div id="result"
+         class="jumbotron result-container"
+         style="display: none"></div>
+  </div>
+</div>
+<script>
+  $(() => { (new CreateForm()).bind(); });
+</script>
