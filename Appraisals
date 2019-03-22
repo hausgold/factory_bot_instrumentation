@@ -1,15 +1,15 @@
 appraise 'rails-4' do
-  gem 'activesupport', '4.2.10'
+  gem 'rails', '~> 4.2.11'
 end
 
 appraise 'rails-5.0' do
-  gem 'activesupport', '5.0.6'
+  gem 'rails', '~> 5.0.7'
 end
 
 appraise 'rails-5.1' do
-  gem 'activesupport', '5.1.4'
+  gem 'rails', '~> 5.1.6'
 end
 
 appraise 'rails-5.2' do
-  gem 'activesupport', '5.2.0'
+  gem 'rails', '~> 5.2.2'
 end

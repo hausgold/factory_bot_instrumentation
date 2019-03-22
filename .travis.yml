@@ -17,7 +17,11 @@ gemfile:
   - gemfiles/rails_5.1.gemfile
   - gemfiles/rails_5.2.gemfile
 
-before_install: gem install bundler
+before_install: |
+  [[ ! "${BUNDLE_GEMFILE}" =~ rails_4 ]] \
+    && (gem install bundler) \
+    || (yes n | rvm @global do gem uninstall bundler; \
+      gem install bundler -v '~> 1.0') \
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
