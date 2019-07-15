@@ -6,8 +6,10 @@ ENV['RAILS_ENV'] = 'test'
 require 'simplecov'
 SimpleCov.command_name 'specs'
 
+# Load the Rails dummy application
 require 'bundler/setup'
 require_relative 'dummy/config/environment'
+require 'rspec/rails'
 require 'factory_bot_instrumentation'
 require 'timecop'
 require 'pp'

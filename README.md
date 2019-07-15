@@ -107,20 +107,20 @@ FactoryBot.define do
 
     trait :with_friend do
       after(:create) do |user, elevator|
-        FactoryBot.create(:lead,
-                           *elevator.lead_traits.map(&:to_sym),
-                           friends: [user],
-                           **elevator.friend_overwrites)
+        FactoryBot.create(:user,
+                          *elevator.friend_traits.map(&:to_sym),
+                          friends: [user],
+                          **elevator.friend_overwrites)
       end
     end
 
     trait :with_friends do
       after(:create) do |user, elevator|
         FactoryBot.create_list(:user,
-                                elevator.leads_amount,
-                                *elevator.lead_traits.map(&:to_sym),
-                                friends: [user],
-                                **elevator.friend_overwrites)
+                               elevator.friends_amount,
+                               *elevator.friend_traits.map(&:to_sym),
+                               friends: [user],
+                               **elevator.friend_overwrites)
       end
     end
   end
