@@ -1,3 +1,9 @@
+### 0.3.0
+
+* Removed CI support for Ruby 2.3 (it never worked before)
+* Fixed the overwrite params bug on Rails 4.2
+* Added a test suite for the engine
+
 ### 0.2.0
 
 * Removed the Gemfile locks and added the to the ignore list

@@ -48,6 +48,14 @@ Add this line to your application's Gemfile:
 gem 'factory_bot_instrumentation'
 ```
 
+**Heads up!** In case you use Rails 4.2, you need to add the
+[rails-api](https://github.com/rails-api/rails-api) gem as well, because this
+feature was first introduced with Rails 5.0.
+
+```ruby
+gem 'rails-api'
+```
+
 And then execute:
 
 ```bash
