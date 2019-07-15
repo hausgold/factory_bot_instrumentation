@@ -1,0 +1,29 @@
+# Define new dynamic seed scenarios here which can be used on the API
+# instrumentation frontend.  This frontend is available up to (and including)
+# the canary environment. Production is not supported.  You can access the API
+# instrumentation frontend on the path: +/api/instrumentation+.
+
+default: &default
+  # Each group consists of a key (the pattern to match) and the value (group
+  # name).  The patterns are put inside a quoted regex and the first matching
+  # one will be used so the configuration order is important.
+  groups:
+    UX: UX Scenarios
+
+  # All the scenarios which can be generated.
+  scenarios:
+    - name: Empty user
+      desc: Create a new user without any dependent data.
+      factory: :user
+      traits:
+        - :confirmed
+      overwrite: {}
+
+    - name: Empty user (Bob)
+      desc: Create a new user without any dependent data.
+      factory: :user
+      traits:
+        - :confirmed
+      overwrite:
+        first_name: Bob
+        last_name: Mustermann

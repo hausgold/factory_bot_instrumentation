@@ -6,11 +6,25 @@ ENV['RAILS_ENV'] = 'test'
 require 'simplecov'
 SimpleCov.command_name 'specs'
 
+# Load the Rails dummy application
 require 'bundler/setup'
 require_relative 'dummy/config/environment'
+require 'rspec/rails'
 require 'factory_bot_instrumentation'
 require 'timecop'
 require 'pp'
+
+# See: https://github.com/rails/rails/issues/34790#issuecomment-450502805
+if RUBY_VERSION >= '2.6.0' && Rails.version < '5'
+  class ActionController::TestResponse < ActionDispatch::TestResponse
+    def recycle!
+      # hack to avoid MonitorMixin double-initialize error:
+      @mon_mutex_owner_object_id = nil
+      @mon_mutex = nil
+      initialize
+    end
+  end
+end
 
 # Setup a default timezone for the tests
 Time.zone = 'Europe/Berlin'

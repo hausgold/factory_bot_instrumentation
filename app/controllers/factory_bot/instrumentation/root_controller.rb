@@ -56,7 +56,13 @@ module FactoryBot::Instrumentation
     # @return [Array<Mixed>] the FactoryBot options
     def factory_params
       data = params.permit(:factory, traits: [])
-      overwrite = params.to_unsafe_h.fetch(:overwrite, {}).deep_symbolize_keys
+
+      if Rails::VERSION::MAJOR >= 5
+        overwrite = params.to_unsafe_h.fetch(:overwrite, {})
+                          .deep_symbolize_keys
+      else
+        overwrite = params.fetch('overwrite', {}).deep_symbolize_keys
+      end
 
       [
         data.fetch(:factory).to_sym,
