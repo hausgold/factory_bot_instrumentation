@@ -1,3 +1,7 @@
+### 0.4.0
+
+* Added support for configurable rendering (#6)
+
 ### 0.3.0
 
 * Removed CI support for Ruby 2.3 (it never worked before)

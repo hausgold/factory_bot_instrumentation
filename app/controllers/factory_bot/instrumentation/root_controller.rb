@@ -40,8 +40,8 @@ module FactoryBot::Instrumentation
       FactoryBot.reload
       # Call the factory construction with the user given parameters
       entity = FactoryBot.create(*factory_params)
-      # Render the resulting entity as an API v1 representation
-      render plain: entity.to_json, content_type: 'application/json'
+      # Render the resulting entity with the configured rendering block
+      FactoryBot::Instrumentation.configuration.render_entity.call(self, entity)
     rescue StandardError => err
       # Log for local factory debugging and re-raise for canary onwards
       Rails.logger.error("#{err}\n#{err.backtrace.join("\n")}")

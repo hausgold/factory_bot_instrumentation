@@ -109,6 +109,21 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
         action
         expect(User.last.first_name).to be_eql('Bernd')
       end
+
+      context 'with custom renderer' do
+        before do
+          FactoryBot::Instrumentation.configure do |conf|
+            conf.render_entity = proc do |controller, entity|
+              controller.render plain: { test: true }.to_json
+            end
+          end
+          action
+        end
+
+        it 'uses the custom renderer' do
+          expect(response.body).to be_eql('{"test":true}')
+        end
+      end
     end
   end
 end

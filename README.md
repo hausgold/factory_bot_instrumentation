@@ -301,6 +301,12 @@ FactoryBot::Instrumentation.configure do |conf|
   # The instrumentation configuration file path we should use,
   # defaults to config/instrumentation.yml
   conf.config_file = 'config/scenarios.yml'
+  # By default we use the Rails default JSON rendering mechanism, but
+  # you can configure your own logic here (eg. a custom representer)
+  conf.render_entity = proc do |controller, entity|
+    controller.render plain: entity.to_json,
+                      content_type: 'application/json'
+  end
 end
 ```
 
