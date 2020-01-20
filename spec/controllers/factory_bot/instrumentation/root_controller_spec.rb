@@ -47,7 +47,9 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
   end
 
   describe '#create' do
+    let(:headers) { {} }
     let(:action) do
+      request.headers.merge! headers
       if Rails::VERSION::MAJOR >= 5
         post :create, params: params
       else
@@ -122,6 +124,33 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
 
         it 'uses the custom renderer' do
           expect(response.body).to be_eql('{"test":true}')
+        end
+      end
+
+      context 'with custom before_action filter' do
+        before do
+          FactoryBot::Instrumentation.configure do |conf|
+            conf.before_action = proc do |controller|
+              basic_auth(username: 'username', password: 'password')
+            end
+          end
+          action
+        end
+
+        context 'when unauthenticated' do
+          it 'responds the 401 status code' do
+            expect(response.status).to be_eql(401)
+          end
+        end
+
+        context 'when authenticated' do
+          let(:headers) do
+            { 'HTTP_AUTHORIZATION' => 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=' }
+          end
+
+          it 'responds the 200 status code' do
+            expect(response.status).to be_eql(200)
+          end
         end
       end
     end

@@ -24,6 +24,11 @@ module FactoryBot
                             content_type: 'application/json'
         end
       end
+
+      # By default we do not perform any custom +before_action+ filters on the
+      # instrumentation controllers, with this option you can implement your
+      # custom logic like authentication
+      config_accessor(:before_action) { nil }
     end
   end
 end

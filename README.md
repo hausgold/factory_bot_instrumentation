@@ -271,8 +271,8 @@ ease the integration. But as you can imagine the Instrumentation engine opens
 up some risky possibilities to your application. This is fine for a canary or
 development environment, but not for a production environment.
 
-There is currently only one way to secure the Instrumentation engine. You can
-completly disable it on your production environment by reconfiguring your
+There are currently multiple ways to secure the Instrumentation engine. You can
+completely disable it on your production environment by reconfiguring your
 routes like this:
 
 ```ruby
@@ -283,8 +283,17 @@ Rails.application.routes.draw do
 end
 ```
 
-Another option would be an HTTP basic authentication on this routes, but this
-is not yet implemented.
+Another option would be an HTTP basic authentication. Just configure the gem
+like this on the initializer:
+
+```ruby
+FactoryBot::Instrumentation.configure do |conf|
+  conf.before_action = proc do |controller|
+    basic_auth(username: ENV.fetch('INSTRUMENTATION_USERNAME'),
+               password: ENV.fetch('INSTRUMENTATION_PASSWORD'))
+  end
+end
+```
 
 #### Global settings
 
@@ -306,6 +315,12 @@ FactoryBot::Instrumentation.configure do |conf|
   conf.render_entity = proc do |controller, entity|
     controller.render plain: entity.to_json,
                       content_type: 'application/json'
+  end
+  # By default we do not perform any custom +before_action+ filters on the
+  # instrumentation controllers, with this option you can implement your
+  # custom logic like authentication
+  conf.before_action = proc do |controller|
+    # do your custom logic here
   end
 end
 ```
