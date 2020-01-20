@@ -1,3 +1,7 @@
+### 0.5.0
+
+* Added support for custom before action logics (#7)
+
 ### 0.4.0
 
 * Added support for configurable rendering (#6)
