@@ -1,3 +1,7 @@
+### 0.5.1
+
+* Corrected a bug on the scenario description update (#8)
+
 ### 0.5.0
 
 * Added support for custom before action logics (#7)
