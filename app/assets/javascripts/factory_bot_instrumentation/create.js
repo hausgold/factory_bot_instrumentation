@@ -101,7 +101,7 @@ CreateForm.prototype.bind = function()
     this.submit();
   });
 
-  this.select.on('change', this.updateDesc);
+  this.select.on('change', this.updateDesc.bind(this));
   this.updateDesc();
 };
 
