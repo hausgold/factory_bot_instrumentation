@@ -1,4 +1,4 @@
-### next
+### 0.6.0
 
 * Added support for custom error handling and improved the default error
   handling on FactoryBot usage (#9)
