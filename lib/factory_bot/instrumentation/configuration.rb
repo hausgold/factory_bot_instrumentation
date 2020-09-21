@@ -25,6 +25,21 @@ module FactoryBot
         end
       end
 
+      # By default we assemble a JSON response on errors which may be
+      # helpful for debugging, but you can configure your own logic here
+      config_accessor(:render_error) do
+        proc do |controller, error|
+          app_name = FactoryBot::Instrumentation.configuration.application_name
+          controller.render status: :internal_server_error,
+                            content_type: 'application/json',
+                            plain: {
+                              application: app_name,
+                              error: error.message,
+                              backtrace: error.backtrace.join("\n")
+                            }.to_json
+        end
+      end
+
       # By default we do not perform any custom +before_action+ filters on the
       # instrumentation controllers, with this option you can implement your
       # custom logic like authentication

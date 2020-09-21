@@ -1,3 +1,8 @@
+### next
+
+* Added support for custom error handling and improved the default error
+  handling on FactoryBot usage (#9)
+
 ### 0.5.1
 
 * Corrected a bug on the scenario description update (#8)
