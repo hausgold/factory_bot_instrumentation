@@ -1,10 +1,4 @@
-def swallow_exception
-  begin
-    yield
-  rescue
-    nil
-  end
-end
+# frozen_string_literal: true
 
 RSpec.describe FactoryBot::Instrumentation::RootController,
   type: :controller do
@@ -59,13 +53,47 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
 
     context 'with a missing factory' do
       let(:params) { { 'factory' => 'admin' } }
+      let(:body) { JSON.parse(response.body) }
 
-      before { swallow_exception { action } }
+      before do
+        FactoryBot::Instrumentation.configure do |conf|
+          conf.application_name = 'Dummy'
+        end
+      end
 
-      it 'logs the error' do
-        expect(Rails.logger).to \
-          receive(:error).with(/Factory not registered/).once
-        swallow_exception { action }
+      it 'responds the correct status code' do
+        action
+        expect(response).to have_http_status(500)
+      end
+
+      it 'responds the error' do
+        action
+        expect(body['error']).to be_eql(%(Factory not registered: "admin"))
+      end
+
+      it 'responds the application name' do
+        action
+        expect(body['application']).to be_eql('Dummy')
+      end
+
+      context 'with custom error handling' do
+        before do
+          FactoryBot::Instrumentation.configure do |conf|
+            conf.render_error = proc do |controller, error|
+              controller.render plain: error.message.to_json
+            end
+          end
+          action
+        end
+
+        it 'is a successful response' do
+          expect(response).to be_successful
+        end
+
+        it 'responds the error message' do
+          action
+          expect(body).to be_eql(%(Factory not registered: "admin"))
+        end
       end
     end
 

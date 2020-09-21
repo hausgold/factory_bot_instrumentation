@@ -43,9 +43,8 @@ module FactoryBot::Instrumentation
       # Render the resulting entity with the configured rendering block
       FactoryBot::Instrumentation.configuration.render_entity.call(self, entity)
     rescue StandardError => err
-      # Log for local factory debugging and re-raise for canary onwards
-      Rails.logger.error("#{err}\n#{err.backtrace.join("\n")}")
-      raise err
+      # Handle any error gracefully with the configured error handler
+      FactoryBot::Instrumentation.configuration.render_error.call(self, err)
     end
 
     private
