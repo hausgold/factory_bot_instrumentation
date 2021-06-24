@@ -1,8 +1,3 @@
-appraise 'rails-4' do
-  gem 'rails', '~> 4.2.11'
-  gem 'rails-api', '~> 0.4.1'
-end
-
 appraise 'rails-5.0' do
   gem 'rails', '~> 5.0.7'
 end

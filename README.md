@@ -1,6 +1,6 @@
 ![factory_bot_instrumentation](doc/assets/project.svg)
 
-[![Build Status](https://travis-ci.com/hausgold/factory_bot_instrumentation.svg?token=4XcyqxxmkyBSSV3wWRt7&branch=master)](https://travis-ci.com/hausgold/factory_bot_instrumentation)
+[![Continuous Integration](https://github.com/hausgold/factory_bot_instrumentation/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/hausgold/factory_bot_instrumentation/actions/workflows/test.yml)
 [![Gem Version](https://badge.fury.io/rb/factory_bot_instrumentation.svg)](https://badge.fury.io/rb/factory_bot_instrumentation)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bcf9d9c56e55f4d79747/maintainability)](https://codeclimate.com/repos/5c35e98c8e9b03333000021e/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bcf9d9c56e55f4d79747/test_coverage)](https://codeclimate.com/repos/5c35e98c8e9b03333000021e/test_coverage)
