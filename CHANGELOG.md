@@ -1,3 +1,7 @@
+### next
+
+* Dropped Rails 4 support
+
 ### 0.6.0
 
 * Added support for custom error handling and improved the default error
