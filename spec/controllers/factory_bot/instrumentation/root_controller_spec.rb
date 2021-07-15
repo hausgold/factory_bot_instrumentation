@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe FactoryBot::Instrumentation::RootController,
-  type: :controller do
-
+# rubocop:disable RSpec/NestedGroups because nesting makes sense here
+RSpec.describe(
+  FactoryBot::Instrumentation::RootController,
+  type: :controller
+) do
   render_views
   routes { FactoryBot::Instrumentation::Engine.routes }
 
@@ -44,11 +46,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
     let(:headers) { {} }
     let(:action) do
       request.headers.merge! headers
-      if Rails::VERSION::MAJOR >= 5
-        post :create, params: params
-      else
-        post :create, params
-      end
+      post :create, params: params
     end
 
     context 'with a missing factory' do
@@ -63,7 +61,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
 
       it 'responds the correct status code' do
         action
-        expect(response).to have_http_status(500)
+        expect(response).to have_http_status(:internal_server_error)
       end
 
       it 'responds the error' do
@@ -143,7 +141,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
       context 'with custom renderer' do
         before do
           FactoryBot::Instrumentation.configure do |conf|
-            conf.render_entity = proc do |controller, entity|
+            conf.render_entity = proc do |controller, _entity|
               controller.render plain: { test: true }.to_json
             end
           end
@@ -158,7 +156,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
       context 'with custom before_action filter' do
         before do
           FactoryBot::Instrumentation.configure do |conf|
-            conf.before_action = proc do |controller|
+            conf.before_action = proc do |_controller|
               basic_auth(username: 'username', password: 'password')
             end
           end
@@ -184,3 +182,4 @@ RSpec.describe FactoryBot::Instrumentation::RootController,
     end
   end
 end
+# rubocop:enable RSpec/NestedGroups

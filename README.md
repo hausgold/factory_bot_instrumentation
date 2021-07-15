@@ -2,9 +2,9 @@
 
 [![Continuous Integration](https://github.com/hausgold/factory_bot_instrumentation/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/hausgold/factory_bot_instrumentation/actions/workflows/test.yml)
 [![Gem Version](https://badge.fury.io/rb/factory_bot_instrumentation.svg)](https://badge.fury.io/rb/factory_bot_instrumentation)
-[![Maintainability](https://api.codeclimate.com/v1/badges/bcf9d9c56e55f4d79747/maintainability)](https://codeclimate.com/repos/5c35e98c8e9b03333000021e/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/bcf9d9c56e55f4d79747/test_coverage)](https://codeclimate.com/repos/5c35e98c8e9b03333000021e/test_coverage)
-[![API docs](https://img.shields.io/badge/docs-API-blue.svg)](https://www.rubydoc.info/gems/factory_bot_instrumentation)
+[![Test Coverage](https://automate-api.hausgold.de/v1/coverage_reports/factory_bot_instrumentation/coverage.svg)](https://knowledge.hausgold.de/coverage)
+[![Test Ratio](https://automate-api.hausgold.de/v1/coverage_reports/factory_bot_instrumentation/ratio.svg)](https://knowledge.hausgold.de/coverage)
+[![API docs](https://automate-api.hausgold.de/v1/coverage_reports/factory_bot_instrumentation/documentation.svg)](https://www.rubydoc.info/gems/factory_bot_instrumentation)
 
 This project is dedicated to provide an API and frontend to
 [factory_bot](https://github.com/thoughtbot/factory_bot) factories to generate

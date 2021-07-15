@@ -13,6 +13,7 @@ require 'factory_bot/instrumentation/configuration'
 require 'factory_bot/instrumentation/engine'
 
 module FactoryBot
+  # The top level namespace for the factory_bot_instrumentation gem.
   module Instrumentation
     class << self
       attr_writer :configuration

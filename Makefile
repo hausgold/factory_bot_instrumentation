@@ -25,6 +25,8 @@ RM ?= rm
 BUNDLE ?= bundle
 APPRAISAL ?= appraisal
 RAKE ?= rake
+RUBOCOP ?= rubocop
+YARD ?= yard
 
 # Files
 GEMFILES ?= $(subst _,-,$(patsubst $(GEMFILES_DIR)/%.gemfile,%,\
@@ -53,6 +55,11 @@ all:
 	# test               Run the whole test suite
 	# clean              Clean the dependencies
 	#
+	# docs               Generate the Ruby documentation of the library
+	# stats              Print the code statistics (library and test suite)
+	# notes              Print all the notes from the code
+	# release            Release a new Gem version (maintainers only)
+	#
 	# shell              Run an interactive shell on the container
 	# shell-irb          Run an interactive IRB shell on the container
 
@@ -62,14 +69,25 @@ install:
 	@$(call run-shell,$(BUNDLE) check || $(BUNDLE) install --path $(VENDOR_DIR))
 	@$(call run-shell,$(BUNDLE) exec $(APPRAISAL) install)
 
-test: install
+test: \
+	test-specs \
+	test-style
+
+test-specs:
 	# Run the whole test suite
-	@$(call run-shell,$(BUNDLE) exec $(RAKE))
+	@$(call run-shell,$(BUNDLE) exec $(RAKE) stats spec)
 
 $(TEST_GEMFILES): GEMFILE=$(@:test-%=%)
 $(TEST_GEMFILES):
 	# Run the whole test suite ($(GEMFILE))
 	@$(call run-shell,$(BUNDLE) exec $(APPRAISAL) $(GEMFILE) $(RAKE))
+
+test-style: \
+	test-style-ruby
+
+test-style-ruby:
+	# Run the static code analyzer (rubocop)
+	@$(call run-shell,$(BUNDLE) exec $(RUBOCOP) -a)
 
 clean:
 	# Clean the dependencies
@@ -83,13 +101,26 @@ endif
 
 distclean: clean clean-containers
 
-shell: install
+shell:
 	# Run an interactive shell on the container
 	@$(call run-shell,$(BASH) -i)
 
-shell-irb: install
+shell-irb:
 	# Run an interactive IRB shell on the container
 	@$(call run-shell,bin/console)
+
+docs:
+	# Build the API documentation
+	@$(call run-shell,$(BUNDLE) exec $(YARD) -q && \
+		$(BUNDLE) exec $(YARD) stats --list-undoc --compact)
+
+notes:
+	# Print the code statistics (library and test suite)
+	@$(call run-shell,$(BUNDLE) exec $(RAKE) notes)
+
+stats:
+	# Print all the notes from the code
+	@$(call run-shell,$(BUNDLE) exec $(RAKE) stats)
 
 release:
 	# Release a new gem version
