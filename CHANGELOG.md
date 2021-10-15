@@ -1,8 +1,11 @@
+### 0.7.1
+
+* Migrated to Github Actions
+* Migrated to our own coverage reporting
+
 ### 0.7.0
 
 * Dropped Rails 4 support
-* Migrated to Github Actions
-* Migrated to our own coverage reporting
 
 ### 0.6.0
 
