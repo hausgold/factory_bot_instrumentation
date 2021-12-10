@@ -1,3 +1,7 @@
+### next
+* Added `FactoryBot.reload` to the initializer code to ensure the factories
+  are in place.
+
 ### 0.7.1
 
 * Migrated to Github Actions
