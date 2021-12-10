@@ -1,4 +1,5 @@
-### next
+### 0.8.0
+
 * Added `FactoryBot.reload` to the initializer code to ensure the factories
   are in place.
 
