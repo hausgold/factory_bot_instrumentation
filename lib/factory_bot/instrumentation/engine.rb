@@ -15,8 +15,13 @@ module FactoryBot
 
         FactoryBot::Instrumentation.configure do |conf|
           # Set the application name dynamically
-          conf.application_name \
-            ||= Rails.application.class.parent_name.titleize
+          conf.application_name ||= begin
+            app_class = Rails.application.class
+            parent_name = app_class.module_parent_name \
+              if app_class.respond_to?(:module_parent_name)
+            parent_name ||= app_class.parent_name
+            parent_name.titleize
+          end
         end
       end
     end

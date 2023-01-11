@@ -12,30 +12,9 @@ require_relative 'dummy/config/environment'
 require 'rspec/rails'
 require 'factory_bot_instrumentation'
 require 'timecop'
-require 'pp'
 
-# See: https://github.com/rails/rails/issues/34790#issuecomment-450502805
-if RUBY_VERSION >= '2.6.0' && Rails.version < '5'
-  module ActionController
-    class TestResponse < ActionDispatch::TestResponse
-      def recycle!
-        # HACK: to avoid MonitorMixin double-initialize error:
-        @mon_mutex_owner_object_id = nil
-        @mon_mutex = nil
-        initialize
-      end
-    end
-  end
-end
-
-# Setup a default timezone for the tests
-Time.zone = 'Europe/Berlin'
-
-# The following line is provided for convenience purposes. It has the downside
-# of increasing the boot-up time by auto-requiring all files in the support
-# directory. Alternatively, in the individual `*_spec.rb` files, manually
-# require only the support files necessary.
-Dir[File.join(__dir__, 'support', '**', '*.rb')].each { |f| require f }
+# Load all support helpers and shared examples
+Dir[File.join(__dir__, 'support', '**', '*.rb')].sort.each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -52,4 +31,19 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # RSpec Rails can automatically mix in different behaviours to your tests
+  # based on their file location, for example enabling you to call `get` and
+  # `post` in specs under `spec/controllers`.
+  #
+  # You can disable this behaviour by removing the line below, and instead
+  # explicitly tag your specs with their type, e.g.:
+  #
+  #     RSpec.describe UsersController, :type => :controller do
+  #       # ...
+  #     end
+  #
+  # The different available types are documented in the features, such as in
+  # https://relishapp.com/rspec/rspec-rails/docs
+  config.infer_spec_type_from_file_location!
 end
