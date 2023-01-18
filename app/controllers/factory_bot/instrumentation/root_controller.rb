@@ -45,12 +45,12 @@ module FactoryBot
         FactoryBot::Instrumentation.configuration.render_entity.call(
           self, entity
         )
-      rescue StandardError => err
+      rescue StandardError => e
         # Handle any error gracefully with the configured error handler
-        FactoryBot::Instrumentation.configuration.render_error.call(self, err)
+        FactoryBot::Instrumentation.configuration.render_error.call(self, e)
       end
 
-      private
+      protected
 
       # Parse the given parameters from the request and build
       # a valid FactoryBot options set.
@@ -72,7 +72,7 @@ module FactoryBot
         [
           data.fetch(:factory).to_sym,
           *data.fetch(:traits, []).map(&:to_sym),
-          **overwrite
+          { **overwrite }
         ]
       end
       # rubocop:enable Metrics/MethodLength
@@ -109,8 +109,8 @@ module FactoryBot
       #
       # @return [Hash{Regexp => String}] the group mapping
       def groups
-        instrumentation['groups'].each_with_object({}) do |(key, val), memo|
-          memo[Regexp.new(Regexp.quote(key))] = val
+        instrumentation['groups'].transform_keys do |key|
+          Regexp.new(Regexp.quote(key))
         end
       end
 
