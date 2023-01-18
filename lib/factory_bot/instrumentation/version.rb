@@ -4,7 +4,7 @@ module FactoryBot
   # The gem version details.
   module Instrumentation
     # The version of the +factory_bot_instrumentation+ gem
-    VERSION = '0.8.0'
+    VERSION = '1.0.0'
 
     class << self
       # Returns the version of gem as a string.
