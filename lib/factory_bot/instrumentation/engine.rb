@@ -7,11 +7,16 @@ module FactoryBot
       isolate_namespace FactoryBot::Instrumentation
 
       # Fill in some dynamic settings (application related)
-      initializer 'factory_bot_instrumentation.config' do
-        # Ensure the FactoryBot gem loads its factories to ensure they are
-        # also available in the rails console and other places in the app
-        # and not only via instrumentation frontend.
-        FactoryBot.reload
+      initializer 'factory_bot_instrumentation.config' do |app|
+        # Ensure the FactoryBot gem loads its factories to ensure they are also
+        # available in the rails console and other places in the app and not
+        # only via instrumentation frontend. We skip this step as in
+        # combination with the +factory_bot_rails+ gem (>=6.0) the FactoryBot
+        # initializing occurs after the Rails application initializing, which
+        # leads to +FactoryBot::DuplicateDefinitionError+s.
+        initializer_names = app.initializers.map(&:name).map(&:to_s)
+        FactoryBot.reload \
+          if initializer_names.grep(/^factory_bot\./).count.zero?
 
         FactoryBot::Instrumentation.configure do |conf|
           # Set the application name dynamically

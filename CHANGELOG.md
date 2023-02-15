@@ -1,3 +1,9 @@
+### next
+
+* When used in combination with the `factory_bot_rails` gem (>= 6.0) we do not
+  force a `FactoryBot.reload` at Rails engine initialization as it breaks with
+  an `FactoryBot::DuplicateDefinitionError` (#14)
+
 ### 1.0.1
 
 * Added a retry logic to the FactoryBot reloading on the POST/create endpoint

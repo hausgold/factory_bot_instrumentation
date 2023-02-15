@@ -40,6 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'appraisal', '~> 2.4'
   spec.add_development_dependency 'bundler', '~> 2.3'
   spec.add_development_dependency 'countless', '~> 1.1'
+  spec.add_development_dependency 'factory_bot_rails', '~> 6.2'
   spec.add_development_dependency 'guard-rspec', '~> 4.7'
   spec.add_development_dependency 'railties', '>= 5.2'
   spec.add_development_dependency 'rspec-rails', '~> 5.1'
