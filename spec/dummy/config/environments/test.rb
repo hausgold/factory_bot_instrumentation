@@ -45,4 +45,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # When required on the specs, we load the rails binding
+  if ENV.fetch('FACTORY_BOT_RAILS', 'false') == 'true'
+    # We must make sure the dummy app loads the gem factories
+    config.factory_bot.definition_file_paths << Rails.root.join('../factories')
+  end
 end
