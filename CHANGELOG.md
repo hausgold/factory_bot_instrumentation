@@ -1,4 +1,4 @@
-### next
+### 1.0.2
 
 * When used in combination with the `factory_bot_rails` gem (>= 6.0) we do not
   force a `FactoryBot.reload` at Rails engine initialization as it breaks with
