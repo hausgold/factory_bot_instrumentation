@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'factory_bot', '~> 6.2'
   spec.add_runtime_dependency 'rails', '>= 5.2'
+  spec.add_runtime_dependency 'retries', '>= 0.0.5'
 
   spec.add_development_dependency 'appraisal', '~> 2.4'
   spec.add_development_dependency 'bundler', '~> 2.3'

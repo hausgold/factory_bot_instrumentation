@@ -37,8 +37,11 @@ module FactoryBot
       #
       # The result is the API v1 representation of the created entity.
       def create
-        # Reload the factories to improve the test development experience
-        FactoryBot.reload
+        # Reload the factories to improve the test development experience.
+        # In parallel request conditions this may lead to +Factory already
+        # registered+ errors as this call is not thread safe as it seems,
+        # so we retry it multiple times.
+        with_retries(max_tries: 15) { FactoryBot.reload }
         # Call the factory construction with the user given parameters
         entity = FactoryBot.create(*factory_params)
         # Render the resulting entity with the configured rendering block
