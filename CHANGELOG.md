@@ -1,3 +1,8 @@
+### 1.0.1
+
+* Added a retry logic to the FactoryBot reloading on the POST/create endpoint
+  in order to handle parallel requests properly (#13)
+
 ### 1.0.0
 
 * Bundler >= 2.3 is from now on required as minimal version (#12)
