@@ -11,10 +11,6 @@ require 'countless/rake_tasks'
 APP_RAKEFILE = File.expand_path('spec/dummy/Rakefile', __dir__)
 load 'rails/tasks/engine.rake'
 
-Bundler::GemHelper.install_tasks
-
-Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each { |f| load f }
-
 desc 'Run all specs in spec directory (excluding plugin specs)'
 RSpec::Core::RakeTask.new(spec: [
                             'db:drop', 'db:create', 'db:migrate', 'db:setup'
