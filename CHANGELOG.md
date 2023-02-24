@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.1.1
+
 * Removed double bundler/gem_tasks handling
 
 ### 1.1.0
