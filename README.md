@@ -38,7 +38,9 @@ cases.
     - [Custom scripts](#custom-scripts)
     - [Custom styles](#custom-styles)
 - [Development](#development)
+- [Code of Conduct](#code-of-conduct)
 - [Contributing](#contributing)
+- [Releasing](#releasing)
 
 ## Installation
 
@@ -730,17 +732,28 @@ application. The file could look like this:
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run
-`bundle exec rake spec` to run the tests. You can also run `bin/console` for an
+After checking out the repo, run `make install` to install dependencies. Then,
+run `make test` to run the tests. You can also run `make shell-irb` for an
 interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To
-release a new version, update the version number in `version.rb`, and then run
-`bundle exec rake release`, which will create a git tag for the version, push
-git commits and tags, and push the `.gem` file to
-[rubygems.org](https://rubygems.org).
+## Code of Conduct
+
+Everyone interacting in the project codebase, issue tracker, chat
+rooms and mailing lists is expected to follow the [code of
+conduct](./CODE_OF_CONDUCT.md).
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/hausgold/factory_bot_instrumentation.
+https://github.com/hausgold/factory_bot_instrumentation. Make sure that every pull request adds
+a bullet point to the [changelog](./CHANGELOG.md) file with a reference to the
+actual pull request.
+
+## Releasing
+
+The release process of this Gem is fully automated. You just need to open the
+Github Actions [Release
+Workflow](https://github.com/hausgold/factory_bot_instrumentation/actions/workflows/release.yml)
+and trigger a new run via the **Run workflow** button. Insert the new version
+number (check the [changelog](./CHANGELOG.md) first for the latest release) and
+you're done.
