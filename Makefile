@@ -16,11 +16,20 @@ VENDOR_DIR ?= vendor/bundle
 GEMFILES_DIR ?= gemfiles
 
 # Host binaries
+AWK ?= awk
 BASH ?= bash
 COMPOSE ?= docker-compose
+CP ?= cp
+DOCKER ?= docker
+EXPORT ?= export
+FIND ?= find
+GREP ?= grep
+HEAD ?= head
 ID ?= id
 MKDIR ?= mkdir
 RM ?= rm
+SORT ?= sort
+XARGS ?= xargs
 
 # Container binaries
 APPRAISAL ?= appraisal
