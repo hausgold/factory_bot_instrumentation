@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.1.2
+
 * Moved the development dependencies from the gemspec to the Gemfile (#15)
 * Added a fallback view path handling in case an Rails application cannot
   find our engine templates correctly (#16)
