@@ -29,6 +29,14 @@ module FactoryBot
           end
         end
       end
+
+      # For some reason the Rails engine may not find its partial templates
+      # as it looks for wrong paths, so we add a fallback path to the view
+      # paths
+      app_path = Pathname.new(File.expand_path('../../../app', __dir__))
+      paths['app/views'].push(
+        app_path.join('views/factory_bot/instrumentation').to_s
+      )
     end
   end
 end

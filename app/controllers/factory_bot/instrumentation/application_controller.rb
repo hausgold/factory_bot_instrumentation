@@ -9,11 +9,6 @@ module FactoryBot
       include ActionController::HttpAuthentication::Digest::ControllerMethods
       include ActionController::HttpAuthentication::Token::ControllerMethods
 
-      # For some reason the Rails engine may not find its partial templates as
-      # it looks for wrong paths, so we add a fallback path to the view paths
-      base_path = Pathname.new(File.expand_path('../../../views', __dir__))
-      append_view_path base_path.join('factory_bot/instrumentation')
-
       # Allow the users to implement additional instrumentation-wide before
       # action logic, like authentication
       before_action do |_controller|
