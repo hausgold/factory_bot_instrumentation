@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.1.3
+
 * Corrected the fallback view path configuration (#17)
 
 ### 1.1.2
