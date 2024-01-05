@@ -85,16 +85,12 @@ module FactoryBot
       # to get always a fresh state.
       #
       # @return [Hash{String => Mixed}] the instrumentation scenarios
-      #
-      # rubocop:disable Security/YAMLLoad because we just load
-      #   local configuration files here
       def instrumentation
         config_file = FactoryBot::Instrumentation.configuration.config_file.to_s
-        content = Pathname.new(config_file).read
-        template = ERB.new(content)
-        YAML.load(template.result(binding))[Rails.env]
+        template = ERB.new(Pathname.new(config_file).read)
+        load_method = YAML.respond_to?(:unsafe_load) ? :unsafe_load : :load
+        YAML.send(load_method, template.result(binding))[Rails.env]
       end
-      # rubocop:enable Security/YAMLLoad
 
       # Map all the instrumentation scenarios into groups and pass them back.
       #
