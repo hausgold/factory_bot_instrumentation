@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.1.4
+
 * Pinned factory_bot down to < 6.4.5 in order to support Ruby 2.5 (#18)
 * Added handling to support Psych 4 and 5 (#18)
 
