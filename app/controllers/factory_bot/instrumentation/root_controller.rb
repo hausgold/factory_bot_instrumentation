@@ -89,14 +89,15 @@ module FactoryBot
         config_file = FactoryBot::Instrumentation.configuration.config_file.to_s
         template = ERB.new(Pathname.new(config_file).read)
         load_method = YAML.respond_to?(:unsafe_load) ? :unsafe_load : :load
-        YAML.send(load_method, template.result(binding))[Rails.env]
+        YAML.send(load_method, template.result(binding))[Rails.env] || {}
       end
 
       # Map all the instrumentation scenarios into groups and pass them back.
       #
       # @return [Hash{String => Array}] the grouped scenarios
       def scenarios
-        instrumentation['scenarios'].each_with_object({}) do |scenario, memo|
+        res = (instrumentation['scenarios'] || [])
+        res.each_with_object({}) do |scenario, memo|
           group = scenario_group(scenario['name'])
           scenario['group'] = group
           memo[group] = [] unless memo.key? group
@@ -108,7 +109,7 @@ module FactoryBot
       #
       # @return [Hash{Regexp => String}] the group mapping
       def groups
-        instrumentation['groups'].transform_keys do |key|
+        (instrumentation['groups'] || {}).transform_keys do |key|
           Regexp.new(Regexp.quote(key))
         end
       end
