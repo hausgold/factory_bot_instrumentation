@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.1.5
+
 * Added fallbacks for configuration processing (#19)
 
 ### 1.1.4
