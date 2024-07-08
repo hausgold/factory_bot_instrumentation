@@ -1,6 +1,6 @@
 ### next
 
-* TODO: Replace this bullet point with an actual description of a change.
+* Dropped support for Ruby <2.7 (#20)
 
 ### 1.1.5
 

@@ -93,12 +93,12 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
       it 'responds the error' do
         action
-        expect(body['error']).to be_eql(%(Factory not registered: "admin"))
+        expect(body['error']).to eql(%(Factory not registered: "admin"))
       end
 
       it 'responds the application name' do
         action
-        expect(body['application']).to be_eql('Dummy')
+        expect(body['application']).to eql('Dummy')
       end
 
       context 'with custom error handling' do
@@ -118,7 +118,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
         it 'responds the error message' do
           action
-          expect(body['error']).to be_eql(%(Factory not registered: "admin"))
+          expect(body['error']).to eql(%(Factory not registered: "admin"))
         end
       end
     end
@@ -141,7 +141,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
       it 'create a new user with the default first name' do
         action
-        expect(User.last.first_name).to be_eql('Max')
+        expect(User.last.first_name).to eql('Max')
       end
     end
 
@@ -163,7 +163,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
       it 'create a new user with the correct first name' do
         action
-        expect(User.last.first_name).to be_eql('Bernd')
+        expect(User.last.first_name).to eql('Bernd')
       end
 
       context 'with custom renderer' do
@@ -177,7 +177,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
         end
 
         it 'uses the custom renderer' do
-          expect(response.body).to be_eql('{"test":true}')
+          expect(response.body).to eql('{"test":true}')
         end
       end
 
@@ -193,7 +193,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
         context 'when unauthenticated' do
           it 'responds the 401 status code' do
-            expect(response.status).to be_eql(401)
+            expect(response).to have_http_status(:unauthorized)
           end
         end
 
@@ -203,7 +203,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
           end
 
           it 'responds the 200 status code' do
-            expect(response.status).to be_eql(200)
+            expect(response).to have_http_status(:ok)
           end
         end
       end
@@ -229,7 +229,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
       let(:name) { 'UX Testcase #1' }
 
       it 'returns the correct group name' do
-        expect(action).to be_eql('UX Scenarios')
+        expect(action).to eql('UX Scenarios')
       end
     end
 
@@ -237,7 +237,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
       let(:name) { 'Fancy Testcase #1' }
 
       it 'returns the correct group name' do
-        expect(action).to be_eql('Various')
+        expect(action).to eql('Various')
       end
     end
   end

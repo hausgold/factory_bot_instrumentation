@@ -96,7 +96,7 @@ module FactoryBot
       #
       # @return [Hash{String => Array}] the grouped scenarios
       def scenarios
-        res = (instrumentation['scenarios'] || [])
+        res = instrumentation['scenarios'] || []
         res.each_with_object({}) do |scenario, memo|
           group = scenario_group(scenario['name'])
           scenario['group'] = group
