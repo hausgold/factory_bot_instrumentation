@@ -1,6 +1,6 @@
 ### next
 
-* TODO: Replace this bullet point with an actual description of a change.
+* Just a retag of 1.2.1
 
 ### 1.2.2
 
