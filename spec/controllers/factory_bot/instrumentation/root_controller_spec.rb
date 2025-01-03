@@ -70,15 +70,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
     context 'with a missing factory' do
       let(:params) { { 'factory' => 'admin' } }
-      let(:body) do
-        # NOTE: In Rails 5.2 the +response.parsed_body+ is broken as the
-        # +TestResponse+ headers do not include the content type initially
-        # which results in the identity-encoder. In Rails 6.1 this is evaluated
-        # on call, not on initialization, which fixes the issue.
-        next JSON.parse(response.body.to_s) if response.parsed_body.is_a? String
-
-        response.parsed_body
-      end
+      let(:body) { response.parsed_body }
 
       before do
         FactoryBot::Instrumentation.configure do |conf|
