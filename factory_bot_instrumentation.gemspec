@@ -33,9 +33,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.7'
 
-  # TODO: Remove the upper lock when
-  #       https://github.com/thoughtbot/factory_bot/issues/1614 is solved.
-  spec.add_runtime_dependency 'factory_bot', '~> 6.2', '< 6.4.5'
-  spec.add_runtime_dependency 'rails', '>= 5.2'
-  spec.add_runtime_dependency 'retries', '>= 0.0.5'
+  spec.add_dependency 'factory_bot', '~> 6.2'
+  spec.add_dependency 'rails', '>= 6.1'
+  spec.add_dependency 'retries', '>= 0.0.5'
 end
