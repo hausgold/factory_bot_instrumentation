@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.4.0 (6 January 2025)
+
 * Moved the instrumentation methods (`#instrumentation`, `#scenarios`,
   `#groups`, `#scenario_group`) from the `RootController` to the
   `ApplicationController` (#23)
