@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.4.1 (6 January 2025)
+
 * Reverted (#23) as it causes errors for unknown reasons
 
 ### 1.4.0 (6 January 2025)
