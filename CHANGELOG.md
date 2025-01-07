@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.5.0 (7 January 2025)
+
 * Switched from `ActionController::API` to `ActionController::Base` for the
   engine's `ApplicationController` (#25)
 
