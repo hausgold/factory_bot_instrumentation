@@ -5,6 +5,7 @@ module FactoryBot
     # The Instrumentation engine which can be mounted.
     class Engine < ::Rails::Engine
       isolate_namespace FactoryBot::Instrumentation
+      engine_name 'factory_bot_instrumentation'
 
       # Fill in some dynamic settings (application related)
       initializer 'factory_bot_instrumentation.config' do |app|
