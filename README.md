@@ -243,7 +243,8 @@ application. The file
 this:
 
 ```ruby
-class Instrumentation::AuthenticationsController < ActionController::API
+class Instrumentation::AuthenticationsController \
+      < FactoryBot::Instrumentation::ApplicationController
   # Generate a new web app authentication URL for the given email address.
   # This endpoint creates new login URLs which are valid for 30 minutes.
   def create
@@ -271,8 +272,19 @@ routes like this:
 
 ```ruby
 Rails.application.routes.draw do
-  unless Rails.env.production?
+  if ActiveModel::Type::Boolean.new.cast(ENV.fetch('INSTRUMENTATION_API',
+                                                   false))
     mount FactoryBot::Instrumentation::Engine => '/instrumentation'
+  end
+
+  # or with custom controllers in an namespace
+
+  if ActiveModel::Type::Boolean.new.cast(ENV.fetch('INSTRUMENTATION_API',
+                                                   false))
+    namespace :instrumentation do
+      mount FactoryBot::Instrumentation::Engine => '/'
+      resource :authentication, only: :create
+    end
   end
 end
 ```

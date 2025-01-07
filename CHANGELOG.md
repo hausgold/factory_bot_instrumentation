@@ -1,10 +1,11 @@
 ### next
 
-* TODO: Replace this bullet point with an actual description of a change.
+* Switched from `ActionController::API` to `ActionController::Base` for the
+  engine's `ApplicationController` (#25)
 
 ### 1.4.1 (6 January 2025)
 
-* Reverted (#23) as it causes errors for unknown reasons
+* Reverted (#23) as it causes errors for unknown reasons (#24)
 
 ### 1.4.0 (6 January 2025)
 
