@@ -3,7 +3,7 @@
 module FactoryBot
   module Instrumentation
     # The Instrumentation engine controller with frontend and API actions.
-    class RootController < ApplicationController
+    class RootController < FactoryBot::Instrumentation::ApplicationController
       # Show the instrumentation frontend which features the output of
       # configured dynamic seeds scenarios. The frontend allows humans to
       # generate new seed data on the fly.
