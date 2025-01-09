@@ -1,5 +1,9 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.5.1 (9 January 2025)
+
 * Sometimes the classic Rails autoloader is confused our engines
   `RootController` does not inherit our engines `ApplicationController`, but
   the one from host application, so we specify our dependency explicitly (#26)
