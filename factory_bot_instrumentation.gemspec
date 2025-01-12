@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'factory_bot', '~> 6.2'
   spec.add_dependency 'rails', '>= 6.1'
   spec.add_dependency 'retries', '>= 0.0.5'
+  spec.add_dependency 'zeitwerk', '~> 2.6'
 end
