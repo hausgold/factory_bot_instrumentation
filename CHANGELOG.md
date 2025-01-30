@@ -1,39 +1,43 @@
 ### next
 
-* Added all versions up to Ruby 3.4 to the CI matrix (#29)
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.7.0 (30 January 2025)
+
+* Added all versions up to Ruby 3.4 to the CI matrix ([#29](https://github.com/hausgold/factory_bot_instrumentation/pull/29))
 
 ### 1.6.1 (17 January 2025)
 
-* Added the logger dependency (#28)
+* Added the logger dependency ([#28](https://github.com/hausgold/factory_bot_instrumentation/pull/28))
 
 ### 1.6.0 (12 January 2025)
 
-* Switched to Zeitwerk as autoloader (#27)
+* Switched to Zeitwerk as autoloader ([#27](https://github.com/hausgold/factory_bot_instrumentation/pull/27))
 
 ### 1.5.1 (9 January 2025)
 
 * Sometimes the classic Rails autoloader is confused our engines
   `RootController` does not inherit our engines `ApplicationController`, but
-  the one from host application, so we specify our dependency explicitly (#26)
+  the one from host application, so we specify our dependency explicitly ([#26](https://github.com/hausgold/factory_bot_instrumentation/pull/26))
 
 ### 1.5.0 (7 January 2025)
 
 * Switched from `ActionController::API` to `ActionController::Base` for the
-  engine's `ApplicationController` (#25)
+  engine's `ApplicationController` ([#25](https://github.com/hausgold/factory_bot_instrumentation/pull/25))
 
 ### 1.4.1 (6 January 2025)
 
-* Reverted (#23) as it causes errors for unknown reasons (#24)
+* Reverted (#23) as it causes errors for unknown reasons ([#24](https://github.com/hausgold/factory_bot_instrumentation/pull/24))
 
 ### 1.4.0 (6 January 2025)
 
 * Moved the instrumentation methods (`#instrumentation`, `#scenarios`,
   `#groups`, `#scenario_group`) from the `RootController` to the
-  `ApplicationController` (#23)
+  `ApplicationController` ([#23](https://github.com/hausgold/factory_bot_instrumentation/pull/23))
 
 ### 1.3.0 (3 January 2025)
 
-* Raised minimum supported Ruby/Rails version to 2.7/6.1 (#22)
+* Raised minimum supported Ruby/Rails version to 2.7/6.1 ([#22](https://github.com/hausgold/factory_bot_instrumentation/pull/22))
 
 ### 1.2.4 (15 August 2024)
 
@@ -49,30 +53,30 @@
 
 ### 1.2.1 (9 August 2024)
 
-* Added API docs building to continuous integration (#21)
+* Added API docs building to continuous integration ([#21](https://github.com/hausgold/factory_bot_instrumentation/pull/21))
 
 ### 1.2.0 (8 July 2024)
 
-* Dropped support for Ruby <2.7 (#20)
+* Dropped support for Ruby <2.7 ([#20](https://github.com/hausgold/factory_bot_instrumentation/pull/20))
 
 ### 1.1.5 (18 February 2024)
 
-* Added fallbacks for configuration processing (#19)
+* Added fallbacks for configuration processing ([#19](https://github.com/hausgold/factory_bot_instrumentation/pull/19))
 
 ### 1.1.4 (5 January 2024)
 
-* Pinned factory_bot down to < 6.4.5 in order to support Ruby 2.5 (#18)
-* Added handling to support Psych 4 and 5 (#18)
+* Pinned factory_bot down to < 6.4.5 in order to support Ruby 2.5 ([#18](https://github.com/hausgold/factory_bot_instrumentation/pull/18))
+* Added handling to support Psych 4 and 5 ([#18](https://github.com/hausgold/factory_bot_instrumentation/pull/18))
 
 ### 1.1.3 (18 December 2023)
 
-* Corrected the fallback view path configuration (#17)
+* Corrected the fallback view path configuration ([#17](https://github.com/hausgold/factory_bot_instrumentation/pull/17))
 
 ### 1.1.2 (18 December 2023)
 
-* Moved the development dependencies from the gemspec to the Gemfile (#15)
+* Moved the development dependencies from the gemspec to the Gemfile ([#15](https://github.com/hausgold/factory_bot_instrumentation/pull/15))
 * Added a fallback view path handling in case an Rails application cannot
-  find our engine templates correctly (#16)
+  find our engine templates correctly ([#16](https://github.com/hausgold/factory_bot_instrumentation/pull/16))
 
 ### 1.1.1 (24 February 2023)
 
@@ -86,20 +90,20 @@
 
 * When used in combination with the `factory_bot_rails` gem (>= 6.0) we do not
   force a `FactoryBot.reload` at Rails engine initialization as it breaks with
-  an `FactoryBot::DuplicateDefinitionError` (#14)
+  an `FactoryBot::DuplicateDefinitionError` ([#14](https://github.com/hausgold/factory_bot_instrumentation/pull/14))
 
 ### 1.0.1 (15 February 2023)
 
 * Added a retry logic to the FactoryBot reloading on the POST/create endpoint
-  in order to handle parallel requests properly (#13)
+  in order to handle parallel requests properly ([#13](https://github.com/hausgold/factory_bot_instrumentation/pull/13))
 
 ### 1.0.0 (18 January 2023)
 
-* Bundler >= 2.3 is from now on required as minimal version (#12)
-* Dropped support for Ruby < 2.5 (#12)
-* Dropped support for Rails < 5.2 (#12)
+* Bundler >= 2.3 is from now on required as minimal version ([#12](https://github.com/hausgold/factory_bot_instrumentation/pull/12))
+* Dropped support for Ruby < 2.5 ([#12](https://github.com/hausgold/factory_bot_instrumentation/pull/12))
+* Dropped support for Rails < 5.2 ([#12](https://github.com/hausgold/factory_bot_instrumentation/pull/12))
 * Updated all development/runtime gems to their latest
-  Ruby 2.5 compatible version (#12)
+  Ruby 2.5 compatible version ([#12](https://github.com/hausgold/factory_bot_instrumentation/pull/12))
 
 ### 0.8.0 (10 December 2021)
 
@@ -118,19 +122,19 @@
 ### 0.6.0 (21 September 2020)
 
 * Added support for custom error handling and improved the default error
-  handling on FactoryBot usage (#9)
+  handling on FactoryBot usage ([#9](https://github.com/hausgold/factory_bot_instrumentation/pull/9))
 
 ### 0.5.1 (12 May 2020)
 
-* Corrected a bug on the scenario description update (#8)
+* Corrected a bug on the scenario description update ([#8](https://github.com/hausgold/factory_bot_instrumentation/pull/8))
 
 ### 0.5.0 (20 January 2020)
 
-* Added support for custom before action logics (#7)
+* Added support for custom before action logics ([#7](https://github.com/hausgold/factory_bot_instrumentation/pull/7))
 
 ### 0.4.0 (9 December 2019)
 
-* Added support for configurable rendering (#6)
+* Added support for configurable rendering ([#6](https://github.com/hausgold/factory_bot_instrumentation/pull/6))
 
 ### 0.3.0 (15 July 2019)
 
