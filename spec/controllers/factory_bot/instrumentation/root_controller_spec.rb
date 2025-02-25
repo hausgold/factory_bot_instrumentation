@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-# rubocop:disable RSpec/NestedGroups because nesting makes sense here
+# rubocop:disable RSpec/NestedGroups -- because nesting makes sense here
 RSpec.describe FactoryBot::Instrumentation::RootController do
   render_views
   routes { FactoryBot::Instrumentation::Engine.routes }
