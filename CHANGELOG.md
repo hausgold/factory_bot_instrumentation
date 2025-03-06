@@ -1,6 +1,7 @@
 ### next
 
 * Corrected some RuboCop glitches (#30)
+* Upgraded the rubocop dependencies (#31)
 
 ### 1.7.0 (30 January 2025)
 
