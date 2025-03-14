@@ -1,8 +1,12 @@
 ### next
 
-* Corrected some RuboCop glitches (#30)
-* Upgraded the rubocop dependencies (#31)
-* Corrected a frontend error typo (#32)
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 1.7.1 (14 March 2025)
+
+* Corrected some RuboCop glitches ([#30](https://github.com/hausgold/factory_bot_instrumentation/pull/30))
+* Upgraded the rubocop dependencies ([#31](https://github.com/hausgold/factory_bot_instrumentation/pull/31))
+* Corrected a frontend error typo ([#32](https://github.com/hausgold/factory_bot_instrumentation/pull/32))
 
 ### 1.7.0 (30 January 2025)
 
