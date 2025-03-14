@@ -14,8 +14,8 @@ window.CreateForm = CreateForm = function()
       data: {
         alert: `An unexpected error occured. Looks like something went wrong
                 while generating your new entity. This migth be a bug, or an
-                unexpected feature. It could be a temporary issue. When is is
-                persistent contact your friendly API Instrumentation
+                unexpected feature. It could be a temporary issue. When this
+                is persistent contact your friendly API Instrumentation
                 administrator.`,
         output: output,
         payload: payload,
