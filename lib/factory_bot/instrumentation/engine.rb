@@ -17,7 +17,7 @@ module FactoryBot
         # leads to +FactoryBot::DuplicateDefinitionError+s.
         initializer_names = app.initializers.map(&:name).map(&:to_s)
         FactoryBot.reload \
-          if initializer_names.grep(/^factory_bot\./).count.zero?
+          if initializer_names.grep(/^factory_bot\./).none?
 
         FactoryBot::Instrumentation.configure do |conf|
           # Set the application name dynamically
