@@ -25,5 +25,4 @@ ActiveRecord::Schema[7.1].define(version: 2019_07_15_091641) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "status"
   end
-
 end
