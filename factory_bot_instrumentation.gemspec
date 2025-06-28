@@ -31,13 +31,13 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.7'
+  spec.required_ruby_version = '>= 3.2'
 
   spec.add_dependency 'bigdecimal', '~> 3.1'
   spec.add_dependency 'drb', '~> 2.2'
   spec.add_dependency 'factory_bot', '~> 6.2'
   spec.add_dependency 'mutex_m', '~> 0.3.0'
-  spec.add_dependency 'rails', '>= 6.1'
+  spec.add_dependency 'rails', '>= 7.1'
   spec.add_dependency 'retries', '>= 0.0.5'
   spec.add_dependency 'zeitwerk', '~> 2.6'
 end

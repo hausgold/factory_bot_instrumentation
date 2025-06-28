@@ -17,6 +17,6 @@ gem "sqlite3", "~> 2.7"
 gem "timecop", ">= 0.9.6"
 gem "yard", ">= 0.9.28"
 gem "yard-activesupport-concern", ">= 0.0.1"
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 8.0.0"
 
 gemspec path: "../"

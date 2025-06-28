@@ -7,5 +7,5 @@ class User < ApplicationRecord
                           foreign_key: :user_id,
                           association_foreign_key: :friend_user_id
 
-  enum status: %i[confirmed unconfirmed]
+  enum :status, %i[confirmed unconfirmed]
 end
