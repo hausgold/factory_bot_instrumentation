@@ -51,9 +51,6 @@ module FactoryBot
       # a valid FactoryBot options set.
       #
       # @return [Array<Mixed>] the FactoryBot options
-      #
-      # rubocop:disable Metrics/MethodLength -- because of the Rails version
-      #   handling
       def factory_params
         data = params.permit(:factory, traits: [])
 
@@ -70,7 +67,6 @@ module FactoryBot
           { **overwrite }
         ]
       end
-      # rubocop:enable Metrics/MethodLength
     end
   end
 end
