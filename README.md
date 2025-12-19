@@ -73,8 +73,8 @@ application is working as expected. Whoop. A failure happens on the frontend
 and a lot of tests fail due to the root cause that an entity was not
 deleted/recreated.
 
-A better solution whould be a dynamic seed generation per test case. So an
-entity may be deleted in an isolated manner, due to a random seed. Thats even
+A better solution would be a dynamic seed generation per test case. So an
+entity may be deleted in an isolated manner, due to a random seed. That's even
 better than looking for a statically seeded entity on a list for example,
 because you can now just focus on the single entry which was dynamically
 generated for your insolated test case.
@@ -82,7 +82,7 @@ generated for your insolated test case.
 Another use case for dynamic seeds are explorative testers. They could benefit
 from the entities your factories are already generating. But on canary, or
 production like environments they are not able to access an Rails console to
-trigger the factory_bot factories. Thats where `factory_bot_instrumentation`
+trigger the factory_bot factories. That's where `factory_bot_instrumentation`
 comes in.
 
 ## Usage
@@ -144,7 +144,7 @@ let(:user_with_many_friends) { create :user, :with_friends, friends_amount: 5 }
 
 With the Instrumentation engine you allow external users to trigger your
 factories the same way via an API (HTTP request) or with preconfigured
-scenarios via an easy to use frontend. Thats it.
+scenarios via an easy to use frontend. That's it.
 
 ### Configuration
 
@@ -186,7 +186,7 @@ default: &default
       overwrite: {}
 
     - name: User with a single friend named Bob
-      desc: Create a new user with a single friend whoes name is Bob.
+      desc: Create a new user with a single friend whose name is Bob.
       factory: :user
       traits:
         - :confirmed
@@ -346,7 +346,7 @@ end
 ### API
 
 The Instrumentation engine comes with a single API endpoint which allows you to
-trigger your factory_bot factories with traits and overwrites. Thats just as
+trigger your factory_bot factories with traits and overwrites. That's just as
 simple as it sounds.
 
 The endpoint is at the same path as you mounted the engine. Say you mounted the
@@ -580,7 +580,7 @@ here:
 
 ##### postCreateError
 
-In case you want to perform some magic after an error occured, you can use
+In case you want to perform some magic after an error occurred, you can use
 the `postCreateError` hook. You can access the output options and the
 runtime payload with all its data, but changes to them won't take effect
 because this hook is triggered after the error is rendered. The `payload`
@@ -673,7 +673,7 @@ An example block could look like this:
     {
       cb(null, `
         <div class="alert alert-danger" role="alert">
-          An unexpected error occured.
+          An unexpected error occurred.
         </div>
         <pre id="data">${output}</pre>
         ${window.utils.clipboardButton('data')}
@@ -725,7 +725,7 @@ custom functionality like blocks or complete custom Instrumentation pages. Just
 create `app/views/factory_bot_instrumentation/_styles.html.erb` inside your
 application. The file could look like this:
 
-```hmtl
+```html
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dark.min.css"
       integrity="sha256-GVo4WKmO61/tVmRyEKLvRm2Nnq7mdFCaOim/9HbNpaM="

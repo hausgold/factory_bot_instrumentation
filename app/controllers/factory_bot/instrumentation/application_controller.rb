@@ -42,7 +42,7 @@ module FactoryBot
       end
 
       # Unfortunately +Rails.configuration.instrumentation+ is only read once
-      # and do not hot-reload on changes. Thats why we read this file manually
+      # and do not hot-reload on changes. That's why we read this file manually
       # to get always a fresh state.
       #
       # @return [Hash{String => Mixed}] the instrumentation scenarios
@@ -66,7 +66,7 @@ module FactoryBot
         end
       end
 
-      # Map all the configured scenario groups to a useable hash.
+      # Map all the configured scenario groups to a usable hash.
       #
       # @return [Hash{Regexp => String}] the group mapping
       def groups

@@ -106,7 +106,7 @@ window.hooks = {
   //   }
   preCreateError: [],
 
-  // In case you want to perform some magic after an error occured, you can use
+  // In case you want to perform some magic after an error occurred, you can use
   // the +postCreateError+ hook. You can access the output options and the
   // runtime payload with all its data, but changes to them won't take effect
   // because this hook is triggered after the error is rendered. The +payload+

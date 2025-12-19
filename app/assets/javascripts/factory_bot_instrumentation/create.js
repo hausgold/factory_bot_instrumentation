@@ -12,8 +12,8 @@ window.CreateForm = CreateForm = function()
   {
     window.utils.waterfallWithHooks({
       data: {
-        alert: `An unexpected error occured. Looks like something went wrong
-                while generating your new entity. This migth be a bug, or an
+        alert: `An unexpected error occurred. Looks like something went wrong
+                while generating your new entity. This might be a bug, or an
                 unexpected feature. It could be a temporary issue. When this
                 is persistent contact your friendly API Instrumentation
                 administrator.`,

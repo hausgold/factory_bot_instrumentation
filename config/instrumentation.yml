@@ -27,7 +27,7 @@ default: &default
       overwrite: {}
 
     - name: User with a single friend named Bob
-      desc: Create a new user with a single friend whoes name is Bob.
+      desc: Create a new user with a single friend whose name is Bob.
       factory: :user
       traits:
         - :confirmed
