@@ -37,7 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'drb', '~> 2.2'
   spec.add_dependency 'factory_bot', '~> 6.2'
   spec.add_dependency 'mutex_m', '>= 0.3'
-  spec.add_dependency 'rails', '>= 7.1'
+  spec.add_dependency 'rails', '>= 8.0'
   spec.add_dependency 'retries', '>= 0.0.5'
   spec.add_dependency 'zeitwerk', '~> 2.6'
 end
