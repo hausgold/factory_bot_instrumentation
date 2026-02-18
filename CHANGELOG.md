@@ -1,6 +1,6 @@
 ### next
 
-* TODO: Replace this bullet point with an actual description of a change.
+* Added gemspec dependencies for all loaded gems (#44)
 
 ### 2.7.0 (18 February 2026)
 
