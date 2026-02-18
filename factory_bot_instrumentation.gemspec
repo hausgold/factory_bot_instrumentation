@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 3.3'
 
   spec.add_dependency 'factory_bot', '~> 6.2'
+  spec.add_dependency 'logger', '~> 1.7'
   spec.add_dependency 'rails', '>= 8.0'
   spec.add_dependency 'retries', '>= 0.0.5'
   spec.add_dependency 'zeitwerk', '~> 2.6'
