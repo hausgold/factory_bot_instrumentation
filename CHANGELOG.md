@@ -1,6 +1,10 @@
 ### next
 
-* Dropped Ruby 3.x and Rails <8.1 support (#45)
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 2.9.0 (4 May 2026)
+
+* Dropped Ruby 3.x and Rails <8.1 support ([#45](https://github.com/hausgold/factory_bot_instrumentation/pull/45))
 
 ### 2.8.0 (18 February 2026)
 
