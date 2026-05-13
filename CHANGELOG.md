@@ -1,6 +1,10 @@
 ### next
 
-* Added automatic asset registering with Sprockets (#46)
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 3.0.0 (13 May 2026)
+
+* Added automatic asset registering with Sprockets ([#46](https://github.com/hausgold/factory_bot_instrumentation/pull/46))
 
 So you can remove the following lines from your `app/assets/config/manifest.js`:
 
@@ -9,7 +13,7 @@ So you can remove the following lines from your `app/assets/config/manifest.js`:
 //= link factory_bot_instrumentation/application.js
 ```
 
-* Added automatic asset bundling to support Propshaft (#46)
+* Added automatic asset bundling to support Propshaft ([#46](https://github.com/hausgold/factory_bot_instrumentation/pull/46))
 
 ### 2.9.0 (4 May 2026)
 
