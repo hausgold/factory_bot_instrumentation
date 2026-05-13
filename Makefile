@@ -28,6 +28,7 @@ HEAD ?= head
 ID ?= id
 MKDIR ?= mkdir
 RM ?= rm
+SED ?= sed
 SORT ?= sort
 TEST ?= test
 XARGS ?= xargs
@@ -174,6 +175,11 @@ stats:
 	# Print all the notes from the code
 	@$(call run-shell,$(BUNDLE) exec $(RAKE) stats)
 
-release:
+build:
+	# Build and prepare the gem for releasing
+	@$(call run-shell,$(BUNDLE) exec $(RAKE) bundle_assets)
+	@$(SED) -i '/spec.extensions/d' factory_bot_instrumentation.gemspec
+
+release: build
 	# Release a new gem version
 	@$(BUNDLE) exec $(RAKE) release

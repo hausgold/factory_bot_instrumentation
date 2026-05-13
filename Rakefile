@@ -22,18 +22,20 @@ task :bundle_assets do
   end
 end
 
-# Ensure the asset bundles are up to date before we cut a release build.
-# This guarantees that the +.gem+ file ships with freshly generated
-# +application.js+ and +application.css+ manifests.
-Rake::Task[:build].enhance([:bundle_assets]) \
-  if Rake::Task.task_defined?(:build)
-
 desc 'Run all specs in spec directory (excluding plugin specs)'
 RSpec::Core::RakeTask.new(spec: [
                             'db:drop', 'db:create', 'db:migrate', 'db:setup'
                           ])
 
 task default: :spec
+
+# Neuter Bundler's `release:guard_clean` check. The `make build` step prunes
+# the unbundled JS/CSS sources from `app/assets/**/factory_bot_instrumentation/`
+# after bundling them into `application.{js,css}`, which leaves the working
+# tree dirty by design. The commit + tag are already in place before release,
+# so the clean-tree guard would only block pushing the artefact we just built.
+Rake::Task['release:guard_clean'].clear
+task 'release:guard_clean'
 
 # Configure all code statistics directories
 Countless.configure do |config|

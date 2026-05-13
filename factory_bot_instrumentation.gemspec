@@ -24,7 +24,9 @@ Gem::Specification.new do |spec|
   }
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
+    next false if f.match?(/application\.(js|css)/)
+
+    f.match(%r{^(test|spec|features|ext)/}) || f.match(/\.(js|css)$/)
   end
 
   spec.bindir = 'exe'
