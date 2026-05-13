@@ -1,6 +1,15 @@
 ### next
 
-* TODO: Replace this bullet point with an actual description of a change.
+* Added automatic asset registering with Sprockets (#46)
+
+So you can remove the following lines from your `app/assets/config/manifest.js`:
+
+```js
+//= link factory_bot_instrumentation/application.css
+//= link factory_bot_instrumentation/application.js
+```
+
+* Added automatic asset bundling to support Propshaft (#46)
 
 ### 2.9.0 (4 May 2026)
 

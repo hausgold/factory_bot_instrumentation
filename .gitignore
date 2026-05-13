@@ -11,6 +11,7 @@
 /gemfiles/vendor/
 /Gemfile.lock
 *.gemfile.lock
+/.claude
 
 # rspec failure tracking
 .rspec_status

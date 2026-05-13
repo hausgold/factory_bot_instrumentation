@@ -38,6 +38,30 @@ module FactoryBot
       paths['app/views'].push(
         app_path.join('views/factory_bot/instrumentation').to_s
       )
+
+      # Register the engine's assets with the host application's Sprockets
+      # precompile list so they are picked up by +rake assets:precompile+.
+      # The Sprockets 4+ syntax expects bare logical paths, while older
+      # versions need a +proc+ matcher - we handle both.
+      initializer 'factory_bot_instrumentation.assets', group: :all do |app|
+        if app.config.respond_to?(:assets) && defined?(Sprockets)
+          sprockets_4_or_later =
+            Gem::Version.new(Sprockets::VERSION) >= Gem::Version.new('4')
+
+          %w[
+            factory_bot_instrumentation/application.js
+            factory_bot_instrumentation/application.css
+          ].each do |asset_path|
+            app.config.assets.precompile << (
+              if sprockets_4_or_later
+                asset_path
+              else
+                proc { |path| path == asset_path }
+              end
+            )
+          end
+        end
+      end
     end
   end
 end

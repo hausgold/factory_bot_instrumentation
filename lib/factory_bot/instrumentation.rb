@@ -19,6 +19,9 @@ module FactoryBot
     # Setup a Zeitwerk autoloader instance and configure it
     loader = Zeitwerk::Loader.for_gem_extension(FactoryBot)
 
+    # Do not auto load some parts of the gem
+    loader.ignore("#{__dir__}/instrumentation/asset_bundler.rb")
+
     # Finish the auto loader configuration
     loader.setup
 

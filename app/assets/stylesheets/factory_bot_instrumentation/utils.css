@@ -1,0 +1,20 @@
+.row { margin-top: 5em }
+.result-container { background-color: #f8f8f8 }
+.hljs { background-color: #fff; }
+.jumbotron { padding: 1rem }
+.jumbotron .row { margin-top: 0 }
+.badge { cursor: pointer }
+.btn-link:hover, .btn-link:active, .btn-link:focus { text-decoration: none }
+
+pre {
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+pre + .btn {
+  margin-top: 1rem;
+}

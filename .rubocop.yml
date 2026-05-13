@@ -39,3 +39,7 @@ Rails/FilePath:
 # Because we just implemented the ActiveRecord API.
 Rails/SkipsModelValidations:
   Enabled: false
+
+# Because we don't have a Rails environment here.
+Rails/RakeEnvironment:
+  Enabled: false
