@@ -31,6 +31,12 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  # Regenerate the bundled JavaScript asset whenever the gem is
+  # installed. This is the standard RubyGems / Bundler hook and fires
+  # for plain +gem install+ as well as for Git-source +bundle install+
+  # in third-party applications.
+  spec.extensions = ['ext/factory_bot_instrumentation/extconf.rb']
+
   spec.required_ruby_version = '>= 4.0'
 
   spec.add_dependency 'factory_bot', '~> 6.2'
