@@ -1,6 +1,10 @@
 ### next
 
-* Corrected some RuboCop glitches (#47)
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 3.1.0 (20 May 2026)
+
+* Corrected some RuboCop glitches ([#47](https://github.com/hausgold/factory_bot_instrumentation/pull/47))
 
 ### 3.0.0 (13 May 2026)
 
