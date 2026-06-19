@@ -1,6 +1,10 @@
 ### next
 
-* Improved the title and navigation title on the Instrumentation UI (#48)
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 3.2.0 (19 June 2026)
+
+* Improved the title and navigation title on the Instrumentation UI ([#48](https://github.com/hausgold/factory_bot_instrumentation/pull/48))
 
 ### 3.1.0 (20 May 2026)
 
