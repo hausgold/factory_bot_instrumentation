@@ -1,6 +1,6 @@
 ### next
 
-* TODO: Replace this bullet point with an actual description of a change.
+* Improved the title and navigation title on the Instrumentation UI (#48)
 
 ### 3.1.0 (20 May 2026)
 

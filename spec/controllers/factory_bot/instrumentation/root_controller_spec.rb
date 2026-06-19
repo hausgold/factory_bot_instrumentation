@@ -25,7 +25,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
     it 'includes the default application name on the navigation' do
       expect(response.body).to \
-        match(%r{<nav .*Dummy Instrumentation.*</nav>}m)
+        match(%r{<nav .*Dummy · Instrumentation.*</nav>}m)
     end
 
     context 'with configured application name' do
@@ -40,7 +40,7 @@ RSpec.describe FactoryBot::Instrumentation::RootController do
 
       it 'includes the configured application name on the navigation' do
         expect(response.body).to \
-          match(%r{<nav .*Test Instrumentation.*</nav>}m)
+          match(%r{<nav .*Test · Instrumentation.*</nav>}m)
       end
     end
   end

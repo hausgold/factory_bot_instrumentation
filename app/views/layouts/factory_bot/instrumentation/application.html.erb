@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title><%= @config.application_name %> Instrumentation</title>
+    <title><%= @config.application_name %> · Instrumentation</title>
     <%= render partial: 'styles' %>
     <%= stylesheet_link_tag 'factory_bot_instrumentation/application',
                             media: 'all' %>
@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">
-        <%= @config.application_name %> Instrumentation
+        <%= @config.application_name %> · Instrumentation
       </a>
       <ul class="navbar-nav mr-auto">
         <%= render 'factory_bot_instrumentation/navigation' %>
