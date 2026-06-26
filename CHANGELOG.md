@@ -1,7 +1,11 @@
 ### next
 
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 3.2.1 (26 June 2026)
+
 * Disabled parameter wrapping to silence spurious unpermitted parameter log
-  warnings (#49)
+  warnings ([#49](https://github.com/hausgold/factory_bot_instrumentation/pull/49))
 
 ### 3.2.0 (19 June 2026)
 
