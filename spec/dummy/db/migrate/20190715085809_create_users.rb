@@ -1,12 +1,6 @@
-BASE_CLASS = # frozen_string_literal: true
+# frozen_string_literal: true
 
-  if Rails::VERSION::MAJOR >= 5
-    ActiveRecord::Migration[4.2]
-  else
-    ActiveRecord::Migration
-               end
-
-class CreateUsers < BASE_CLASS
+class CreateUsers < ActiveRecord::Migration[8.1]
   def change
     create_table :users do |t|
       t.string :first_name
