@@ -4,6 +4,13 @@ module FactoryBot
   module Instrumentation
     # The Instrumentation engine controller with frontend and API actions.
     class RootController < FactoryBot::Instrumentation::ApplicationController
+      # Disable Rails' parameter wrapping. For JSON requests it would nest
+      # a copy of the request body under a +root+ key (derived from this
+      # controller's name). There is no +Root+ model to map onto, so the
+      # wrapper only duplicates the parameters and adds a spurious
+      # "Unpermitted parameters: :root" log warning.
+      wrap_parameters false
+
       # Show the instrumentation frontend which features the output of
       # configured dynamic seeds scenarios. The frontend allows humans to
       # generate new seed data on the fly.
@@ -52,14 +59,15 @@ module FactoryBot
       #
       # @return [Array<Mixed>] the FactoryBot options
       def factory_params
-        data = params.permit(:factory, traits: [])
-
-        overwrite = if Rails::VERSION::MAJOR >= 5
-                      params.to_unsafe_h.fetch(:overwrite, {})
-                            .deep_symbolize_keys
-                    else
-                      params.fetch('overwrite', {}).deep_symbolize_keys
-                    end
+        # Read the open-ended +overwrite+ hash unfiltered, as its keys and
+        # values are arbitrary and cannot be described with strong
+        # parameters.
+        overwrite = params.to_unsafe_h.fetch(:overwrite, {})
+                          .deep_symbolize_keys
+        # Strip +overwrite+ before permitting the rest, otherwise it would
+        # be reported as a spurious "Unpermitted parameters: :overwrite"
+        # log warning.
+        data = params.except(:overwrite).permit(:factory, traits: [])
 
         [
           data.fetch(:factory).to_sym,

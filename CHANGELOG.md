@@ -1,6 +1,7 @@
 ### next
 
-* TODO: Replace this bullet point with an actual description of a change.
+* Disabled parameter wrapping to silence spurious unpermitted parameter log
+  warnings (#49)
 
 ### 3.2.0 (19 June 2026)
 

@@ -1,12 +1,6 @@
-BASE_CLASS = # frozen_string_literal: true
+# frozen_string_literal: true
 
-  if Rails::VERSION::MAJOR >= 5
-    ActiveRecord::Migration[4.2]
-  else
-    ActiveRecord::Migration
-               end
-
-class CreateFriendships < BASE_CLASS
+class CreateFriendships < ActiveRecord::Migration[8.1]
   def self.up
     create_table :friendships, id: false do |t|
       t.integer :user_id
