@@ -1,6 +1,10 @@
 ### next
 
-* Upgraded the simplecov gem to 1.3 (#50)
+* TODO: Replace this bullet point with an actual description of a change.
+
+### 3.3.0 (28 September 2026)
+
+* Upgraded the simplecov gem to 1.3 ([#50](https://github.com/hausgold/factory_bot_instrumentation/pull/50))
 
 ### 3.2.1 (26 June 2026)
 
